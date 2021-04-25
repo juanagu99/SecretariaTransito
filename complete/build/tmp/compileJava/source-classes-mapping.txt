@@ -4,9 +4,9 @@ com/secretaria/transito/model/Cliente.java
  com.secretaria.transito.model.Cliente
 com/secretaria/transito/TransitoApplication.java
  com.secretaria.transito.TransitoApplication
-com/secretaria/transito/model/Vehiculo.java
- com.secretaria.transito.model.Vehiculo
-com/secretaria/transito/controller/InsertController.java
- com.secretaria.transito.controller.InsertController
 com/secretaria/transito/controller/SearchController.java
  com.secretaria.transito.controller.SearchController
+com/secretaria/transito/controller/InsertController.java
+ com.secretaria.transito.controller.InsertController
+com/secretaria/transito/model/Vehiculo.java
+ com.secretaria.transito.model.Vehiculo

@@ -1,56 +1,73 @@
 package com.secretaria.transito.model;
 
-import java.util.Date;
+import javax.persistence.*;
 
+@Entity
+@Table(name="Vehiculos")
 public class Vehiculo extends Cliente{
 
-    private String placa;
-    private String tipoVehiculo;
-    private String marca;
-    private String fechaMatricula;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer IdVehiculo;
+    @Column(name="Placa",length = 10)
+    private String Placa;
+    @Column(name="idTipoVehiculo",length = 11)
+    private Integer idTipoVehiculo;
+    @Column(name="idMarcaVehiculo",length = 11)
+    private Integer idMarcaVehiculo;
+    @Column(name="FechaMatricula")
+    private String FechaMatricula;
 
     public Vehiculo() {
         super();
     }
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
+    public void setIdVehiculo(Integer idVehiculo) {
+        IdVehiculo = idVehiculo;
     }
 
-    public void setTipoVehiculo(String tipoVehiculo) {
-        this.tipoVehiculo = tipoVehiculo;
+    public void setPlaca(String Placa) {
+        this.Placa = Placa;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setTipoVehiculo(Integer idTipoVehiculo) {
+        this.idTipoVehiculo = idTipoVehiculo;
     }
 
-    public void setFechaMatricula(String fechaMatricula) {
-        this.fechaMatricula = fechaMatricula;
+    public void setMarca(Integer idMarcaVehiculo) {
+        this.idMarcaVehiculo = idMarcaVehiculo;
+    }
+
+    public void setFechaMatricula(String FechaMatricula) {
+        this.FechaMatricula = FechaMatricula;
+    }
+
+    public Integer getIdVehiculo() {
+        return IdVehiculo;
     }
 
     public String getPlaca() {
-        return placa;
+        return Placa;
     }
 
-    public String getTipoVehiculo() {
-        return tipoVehiculo;
+    public Integer getTipoVehiculo() {
+        return idTipoVehiculo;
     }
 
-    public String getMarca() {
-        return this.marca;
+    public Integer getMarca() {
+        return this.idMarcaVehiculo;
     }
 
     public String getFechaMatricula() {
-        return fechaMatricula;
+        return FechaMatricula;
     }
 
     @Override
     public String toString() {
-        return this.placa +"\n"+
-                this.marca +"\n"+
-                this.tipoVehiculo+"\n"+
-                this.fechaMatricula.toString() +"\n"+
+        return this.Placa +"\n"+
+                this.idMarcaVehiculo +"\n"+
+                this.idTipoVehiculo+"\n"+
+                this.FechaMatricula.toString() +"\n"+
                 this.getIdentificacion()+"\n"+
                 this.getTipoDocumentoCliente()+"\n"+
                 this.getNombre();

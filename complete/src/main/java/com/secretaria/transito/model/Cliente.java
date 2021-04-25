@@ -1,51 +1,60 @@
 package com.secretaria.transito.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="Clientes")
 public class Cliente {
 
-    private String identificacion;
-    private String tipoDocumentoCliente;
-    private String nombre;
-    private String direccion;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String Identificacion;
+    @Column(name="idTipoDocumento",length = 11)
+    private Integer idTipoDocumento;
+    @Column(name="Nombre",length = 200)
+    private String Nombre;
+    @Column(name="Direccion",length = 200)
+    private String Direccion;
 
     public Cliente() {
     }
 
-    public Cliente(String identificacion, String tipoDocumentoCliente, String nombre, String direccion) {
-        this.identificacion = identificacion;
-        this.tipoDocumentoCliente = tipoDocumentoCliente;
-        this.nombre = nombre;
-        this.direccion = direccion;
+    public Cliente(String Identificacion, Integer idTipoDocumento, String Nombre, String Direccion) {
+        this.Identificacion = Identificacion;
+        this.idTipoDocumento = idTipoDocumento;
+        this.Nombre = Nombre;
+        this.Direccion = Direccion;
     }
 
     public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+        this.Identificacion = identificacion;
     }
 
-    public void setTipoDocumentoCliente(String tipoDocumentoCliente) {
-        this.tipoDocumentoCliente = tipoDocumentoCliente;
+    public void setTipoDocumentoCliente(Integer idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
     }
 
     public String getIdentificacion() {
-        return identificacion;
+        return Identificacion;
     }
 
-    public String getTipoDocumentoCliente() {
-        return tipoDocumentoCliente;
+    public Integer getTipoDocumentoCliente() {
+        return idTipoDocumento;
     }
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
     public String getDireccion() {
-        return direccion;
+        return Direccion;
     }
 }
