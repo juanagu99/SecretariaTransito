@@ -3,14 +3,16 @@ package com.secretaria.transito.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Clientes")
+@Table(name="clientes")
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String Identificacion;
-    @Column(name="idTipoDocumento",length = 11)
-    private Integer idTipoDocumento;
+    private String identificacion;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_documento")
+    private TipoDocumento TipoDocumento;
+
     @Column(name="Nombre",length = 200)
     private String Nombre;
     @Column(name="Direccion",length = 200)
@@ -19,19 +21,19 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String Identificacion, Integer idTipoDocumento, String Nombre, String Direccion) {
-        this.Identificacion = Identificacion;
-        this.idTipoDocumento = idTipoDocumento;
+    public Cliente(String Identificacion, TipoDocumento TipoDocumento, String Nombre, String Direccion) {
+        this.identificacion = Identificacion;
+        this.TipoDocumento = TipoDocumento;
         this.Nombre = Nombre;
         this.Direccion = Direccion;
     }
 
     public void setIdentificacion(String identificacion) {
-        this.Identificacion = identificacion;
+        this.identificacion = identificacion;
     }
 
-    public void setTipoDocumentoCliente(Integer idTipoDocumento) {
-        this.idTipoDocumento = idTipoDocumento;
+    public void setTipoDocumentoCliente(TipoDocumento TipoDocumento) {
+        this.TipoDocumento = TipoDocumento;
     }
 
     public void setNombre(String Nombre) {
@@ -43,11 +45,11 @@ public class Cliente {
     }
 
     public String getIdentificacion() {
-        return Identificacion;
+        return identificacion;
     }
 
-    public Integer getTipoDocumentoCliente() {
-        return idTipoDocumento;
+    public TipoDocumento getTipoDocumentoCliente() {
+        return TipoDocumento;
     }
 
     public String getNombre() {
@@ -56,5 +58,15 @@ public class Cliente {
 
     public String getDireccion() {
         return Direccion;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "Identificacion='" + identificacion + '\'' +
+                ", TipoDocumento=" + TipoDocumento.getNombre() +
+                ", Nombre='" + Nombre + '\'' +
+                ", Direccion='" + Direccion + '\'' +
+                '}';
     }
 }

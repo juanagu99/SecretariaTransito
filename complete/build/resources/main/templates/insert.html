@@ -25,7 +25,7 @@
 
         <div>
 
-            <form method="post" th:action="@{/post}" th:object="${vehiculo}">
+            <form method="post" th:action="@{/post}" th:object="${registro}">
 
                 <div style="margin-bottom: 10px" >
                     <h3>Datos del vehículo</h3>
@@ -33,22 +33,27 @@
 
                 <div style="margin-bottom: 10px" class="form-group row">
                     <div class="col-md-6">
-                        <label for="tipoVehiculo">Tipo de vehiculo</label>
-                        <select class="form-control" id="tipoVehiculo" name="tipoVehiculo" field="*{tipoVehiculo}">
-                            <option selected>Escoja un tipo de vehículo</option>
-                            <option value="1">Carro</option>
-                            <option value="2">Moto</option>
-                            <option value="3">Carro pesado</option>
+                        <label for="idTipoVehiculo">Tipo de vehiculo</label>
+                        <select class="form-control" id="idTipoVehiculo" name="idTipoVehiculo" field="*{idTipoVehiculo}">
+                            <option th:each="tipovehi : ${tipo_vehiculo}"
+                                    th:value="${tipovehi.getIdTipoVehiculo()}"
+                                    th:text="${tipovehi.getNombre()}" />
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label for="placa">Placa</label>
                         <input type="text" class="form-control" id="placa" name="placa" placeholder="Placa" field="*{placa}">
                     </div>
+
                     <div class="col-md-6">
-                        <label for="marca">Marca</label>
-                        <input type="Marca" class="form-control" id="marca" name="marca" placeholder="Marca" field="*{marca}">
+                        <label for="idMarcaVehiculo">Marca del vehiculo</label>
+                        <select class="form-control" id="idMarcaVehiculo" name="idMarcaVehiculo" field="*{idMarcaVehiculo}">
+                            <option th:each="marc : ${marcas}"
+                                    th:value="${marc.getIdMarcaVehiculo()}"
+                                    th:text="${marc.getNombre()}"/>
+                        </select>
                     </div>
+
                     <div class="col-md-6">
                         <label for="fechaMatricula">Fecha de matricula</label>
                         <input type="date" class="form-control" id="fechaMatricula" name="fechaMatricula" placeholder="Fecha de matricula" field="*{fechaMatricula}">
@@ -61,24 +66,24 @@
 
                 <div style="margin-bottom: 15px" class="form-group row">
                     <div class="form-group col-md-6">
-                        <label for="tipoDocumentoCliente">Tipo de documento</label>
-                        <select class="form-control" id="tipoDocumentoCliente" name="tipoDocumentoCliente" field="*{tipoDocumentoCliente}">
-                            <option selected>Escoja un tipo de documento</option>
-                            <option value="1">C.C</option>
-                            <option value="1">NIT</option>
+                        <label for="idTipoDocumento">Tipo de documento</label>
+                        <select class="form-control" id="idTipoDocumento" name="idTipoDocumento" field="*{idTipoDocumento}">
+                            <option th:each="tipodoc : ${tipo_documento}"
+                                    th:value="${tipodoc.getId_tipo_documento()}"
+                                    th:text="${tipodoc.getNombre()}" />
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="identificacion">Identificación</label>
-                        <input type="text" class="form-control" id="identificacion" name="identificacion" field="*{identificacion}">
+                        <label for="Identificacion">Identificación</label>
+                        <input type="text" class="form-control" id="Identificacion" name="Identificacion" field="*{Identificacion}">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" field="*{nombre}">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" id="Nombre" name="Nombre" field="*{Nombre}">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="direccion">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" name="direccion" field="*{direccion}">
+                        <label for="Direccion">Dirección</label>
+                        <input type="text" class="form-control" id="Direccion" name="Direccion" field="*{Direccion}">
                     </div>
                 </div>
 

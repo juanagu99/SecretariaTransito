@@ -1,28 +1,31 @@
 package com.secretaria.transito.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name="tipovehiculos")
-public class TipoVehiculo {
+@Table(name="tipodocumentos")
+public class TipoDocumento {
 
     @Id
-    @Column(name="id_tipo_vehiculo",length = 11)
-    private Integer id_tipo_vehiculo;
+    @Column(name="id_tipo_documento",length = 11)
+    private Integer id_tipo_documento;
 
     @Column(name="Nombre",length = 100)
     private String Nombre;
 
-    public void setIdTipoVehiculo(Integer idTipoVehiculo) {
-        this.id_tipo_vehiculo = id_tipo_vehiculo;
+    public void setId_tipo_documento(Integer id_tipo_documento) {
+        this.id_tipo_documento = id_tipo_documento;
     }
 
     public void setNombre(String nombre) {
         Nombre = nombre;
     }
 
-    public Integer getIdTipoVehiculo() {
-        return id_tipo_vehiculo;
+    public Integer getId_tipo_documento() {
+        return id_tipo_documento;
     }
 
     public String getNombre() {

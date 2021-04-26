@@ -1,12 +1,30 @@
-com/secretaria/transito/controller/HomeController.java
- com.secretaria.transito.controller.HomeController
-com/secretaria/transito/model/Cliente.java
- com.secretaria.transito.model.Cliente
+com/secretaria/transito/model/TipoDocumento.java
+ com.secretaria.transito.model.TipoDocumento
+com/secretaria/transito/interfaces/ITipoVehiculo.java
+ com.secretaria.transito.interfaces.ITipoVehiculo
+com/secretaria/transito/interfaces/ITipoDocumento.java
+ com.secretaria.transito.interfaces.ITipoDocumento
+com/secretaria/transito/interfaces/IVehiculo.java
+ com.secretaria.transito.interfaces.IVehiculo
+com/secretaria/transito/model/RegistroAutomovil.java
+ com.secretaria.transito.model.RegistroAutomovil
+com/secretaria/transito/model/MarcaVehiculo.java
+ com.secretaria.transito.model.MarcaVehiculo
 com/secretaria/transito/TransitoApplication.java
  com.secretaria.transito.TransitoApplication
+com/secretaria/transito/controller/HomeController.java
+ com.secretaria.transito.controller.HomeController
+com/secretaria/transito/interfaces/ICliente.java
+ com.secretaria.transito.interfaces.ICliente
 com/secretaria/transito/controller/SearchController.java
  com.secretaria.transito.controller.SearchController
-com/secretaria/transito/controller/InsertController.java
- com.secretaria.transito.controller.InsertController
+com/secretaria/transito/interfaces/IMarcaVehiculo.java
+ com.secretaria.transito.interfaces.IMarcaVehiculo
+com/secretaria/transito/model/Cliente.java
+ com.secretaria.transito.model.Cliente
+com/secretaria/transito/model/TipoVehiculo.java
+ com.secretaria.transito.model.TipoVehiculo
 com/secretaria/transito/model/Vehiculo.java
  com.secretaria.transito.model.Vehiculo
+com/secretaria/transito/controller/InsertController.java
+ com.secretaria.transito.controller.InsertController
