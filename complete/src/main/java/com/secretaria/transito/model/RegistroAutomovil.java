@@ -1,10 +1,5 @@
 package com.secretaria.transito.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
 public class RegistroAutomovil {
 
     //campos del cliente
@@ -20,7 +15,7 @@ public class RegistroAutomovil {
     private String idMarcaVehiculo;
     private String FechaMatricula;
 
-        public RegistroAutomovil(String identificacion, String idTipoDocumento, String nombre, String direccion, String idVehiculo, String placa, String idTipoVehiculo, String idMarcaVehiculo, String fechaMatricula) {
+    public RegistroAutomovil(String identificacion, String idTipoDocumento, String nombre, String direccion, String idVehiculo, String placa, String idTipoVehiculo, String idMarcaVehiculo, String fechaMatricula) {
         Identificacion = identificacion;
         this.idTipoDocumento = idTipoDocumento;
         Nombre = nombre;

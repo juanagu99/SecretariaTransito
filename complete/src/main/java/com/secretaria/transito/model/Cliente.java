@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Cliente {
 
     @Id
+    @Column(name = "identificacion", updatable = false, nullable = false, unique = true)
     private String identificacion;
 
     @ManyToOne

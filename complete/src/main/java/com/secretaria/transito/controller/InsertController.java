@@ -74,7 +74,6 @@ public class InsertController {
         vehiculo.setMarca(marcaVehiculo);
         vehiculo.setFechaMatricula(registro.getFechaMatricula());
         vehiculo.setCliente(cliente);
-        System.out.println(vehiculo.toString());
         refVehiculo.save(vehiculo);
         /*..
         Se retorna una vista

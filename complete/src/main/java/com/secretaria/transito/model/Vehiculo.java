@@ -1,6 +1,7 @@
 package com.secretaria.transito.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name="vehiculos")
@@ -76,6 +77,19 @@ public class Vehiculo {
 
     public String getFechaMatricula() {
         return FechaMatricula;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Vehiculo)) return false;
+        Vehiculo vehiculo = (Vehiculo) o;
+        return getPlaca().equals(vehiculo.getPlaca());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPlaca());
     }
 
     @Override
