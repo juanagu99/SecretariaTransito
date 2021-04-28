@@ -1,2 +1,0 @@
-com/secretaria/transito/TransitoApplicationTest.java
- com.secretaria.transito.TransitoApplicationTest
