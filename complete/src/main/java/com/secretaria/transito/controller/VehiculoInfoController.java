@@ -25,12 +25,12 @@ public class VehiculoInfoController {
 
     @GetMapping("/vehiculo")
     public String vehiculoInfo(@ModelAttribute("credencial") Credencial credencial, Model model) {
+
         if (credencial != null) {
+
             if (refVehiculo.findById(credencial.getIdentificacion()).isPresent()){
                 Vehiculo vehiculo = refVehiculo.findById(credencial.getIdentificacion()).get();
-                System.out.println("llegue hasta aquí");
                 List<Infraccion> infracciones = refInfraccion.findAll();
-                System.out.println("llegue hasta aquí 2");
                 List<Infraccion> infraccionesVehiculo = new ArrayList<Infraccion>();
                 for (Infraccion inf : infracciones) {
                     if (inf.getVehiculo().equals(vehiculo)) {
