@@ -35,13 +35,14 @@ public class InfraccionesController {
 
     @PostMapping("/addInfraccion")
     public ModelAndView agregarInfraccion(@ModelAttribute("infraccion") RegistroInfraccion registro) {
+
         ModelAndView mav = new ModelAndView("redirect:"+"/");
         mav.addObject("registro",registro);
 
         Optional<Vehiculo> vehiculo = refVehiculo.findById(registro.getPlacaVehiculo());
         Optional<AgenteTransito> agenteTransito = refAgenteTransito.findById(registro.getIdentificacionAgenteTransito());
 
-        if (!vehiculo.isPresent()) {
+        if (vehiculo.isPresent()) {
 
             Infraccion infraccion = new Infraccion();
             infraccion.setFechaInfraccion(registro.getFechaInfraccion());
@@ -49,21 +50,18 @@ public class InfraccionesController {
 
             if (!agenteTransito.isPresent()) {
 
-                // TODO: presenta problemas por el estado anterior del método, limpiar la base de datos y volver a intentar
-
                 AgenteTransito agenteTransitoNuevo = new AgenteTransito(
                         registro.getIdentificacionAgenteTransito(),
                         registro.getNombreAgenteTransito()
                 );
                 refAgenteTransito.save(agenteTransitoNuevo);
                 infraccion.setAgenteTransito(agenteTransitoNuevo);
+
             } else {
                 infraccion.setAgenteTransito(agenteTransito.get());
             }
-
             refInfraccion.save(infraccion);
         }
-
         return mav;
     }
 

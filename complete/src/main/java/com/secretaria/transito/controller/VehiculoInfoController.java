@@ -31,7 +31,7 @@ public class VehiculoInfoController {
             if (refVehiculo.findById(credencial.getIdentificacion()).isPresent()){
                 Vehiculo vehiculo = refVehiculo.findById(credencial.getIdentificacion()).get();
                 List<Infraccion> infracciones = refInfraccion.findAll();
-                List<Infraccion> infraccionesVehiculo = new ArrayList<Infraccion>();
+                List<Infraccion> infraccionesVehiculo = new ArrayList<>();
                 for (Infraccion inf : infracciones) {
                     if (inf.getVehiculo().equals(vehiculo)) {
                         infraccionesVehiculo.add(inf);
