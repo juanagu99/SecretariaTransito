@@ -25,7 +25,7 @@
 
         <div>
 
-            <form method="post" th:action="@{/post}" th:object="${registro}">
+            <form method="post" th:action="@{/post}" th:object="${registro}" class="row g-3 needs-validation" novalidate>
 
                 <div style="margin-bottom: 10px" >
                     <h3>Datos del vehículo</h3>
@@ -33,21 +33,23 @@
 
                 <div style="margin-bottom: 10px" class="form-group row">
                     <div class="col-md-6">
-                        <label for="idTipoVehiculo">Tipo de vehiculo</label>
+                        <label for="idTipoVehiculo">Tipo de vehiculo *</label>
                         <select class="form-control" id="idTipoVehiculo" name="idTipoVehiculo" field="*{idTipoVehiculo}" required>
+                            <option selected disabled value="">Seleccione un tipo de vehiculo...</option>
                             <option th:each="tipovehi : ${tipo_vehiculo}"
                                     th:value="${tipovehi.getIdTipoVehiculo()}"
                                     th:text="${tipovehi.getNombre()}" />
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="placa">Placa</label>
-                        <input type="text" class="form-control" id="placa" name="placa" placeholder="Placa" field="*{placa}" required>
+                        <label for="placa">Placa *</label>
+                        <input type="text" autocomplete="off" class="form-control" id="placa" name="placa" placeholder="Placa" field="*{placa}" required>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="idMarcaVehiculo">Marca del vehiculo</label>
+                        <label for="idMarcaVehiculo">Marca del vehiculo *</label>
                         <select class="form-control" id="idMarcaVehiculo" name="idMarcaVehiculo" field="*{idMarcaVehiculo}" required>
+                            <option selected disabled value="">Seleccione una marca...</option>
                             <option th:each="marc : ${marcas}"
                                     th:value="${marc.getIdMarcaVehiculo()}"
                                     th:text="${marc.getNombre()}"/>
@@ -55,7 +57,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="fechaMatricula">Fecha de matricula</label>
+                        <label for="fechaMatricula">Fecha de matricula *</label>
                         <input type="date" class="form-control" id="fechaMatricula" name="fechaMatricula" placeholder="Fecha de matricula" field="*{fechaMatricula}" required>
                     </div>
                 </div>
@@ -66,32 +68,54 @@
 
                 <div style="margin-bottom: 15px" class="form-group row">
                     <div class="form-group col-md-6">
-                        <label for="idTipoDocumento">Tipo de documento</label>
+                        <label for="idTipoDocumento">Tipo de documento *</label>
                         <select class="form-control" id="idTipoDocumento" name="idTipoDocumento" field="*{idTipoDocumento}" required>
+                            <option selected disabled value="">Seleccione un tipo de documento...</option>
                             <option th:each="tipodoc : ${tipo_documento}"
                                     th:value="${tipodoc.getId_tipo_documento()}"
                                     th:text="${tipodoc.getNombre()}" />
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="Identificacion">Identificación</label>
+                        <label for="Identificacion">Identificación *</label>
                         <input type="text" class="form-control" id="Identificacion" name="Identificacion" field="*{Identificacion}" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="Nombre">Nombre</label>
+                        <label for="Nombre">Nombre *</label>
                         <input type="text" class="form-control" id="Nombre" name="Nombre" field="*{Nombre}" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="Direccion">Dirección</label>
-                        <input type="text" class="form-control" id="Direccion" name="Direccion" field="*{Direccion}" required>
+                        <input type="text" class="form-control" id="Direccion" name="Direccion" field="*{Direccion}">
                     </div>
                 </div>
 
                 <div style="margin-bottom: 10px" class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-dark btn-lg">Ingresar vehículo</button>
+                    <button type="submit" id="ingresarVehiculo" class="btn btn-dark btn-lg">Ingresar vehículo</button>
                 </div>
             </form>
         </div>
     </div>
 </body>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
 </html>
